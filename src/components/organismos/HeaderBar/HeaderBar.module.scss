@@ -1,0 +1,73 @@
+
+.container{
+    background-color:black;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding:0px 50px;
+    position: sticky;
+    top: 0;
+}
+
+.sectionContainer{
+    display: flex;
+    width: 400px;
+    gap: 40px;
+}
+
+.logo{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+
+}
+
+.text {
+    display: block;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+   text-decoration: none;
+   list-style: none;
+
+    &:hover{
+        cursor: pointer;
+        color:#33A04C ;
+        
+        
+    }
+    
+}
+
+
+@media (max-width: 1300px) {
+    /* Laptop */
+    .container{
+        background-color: black;
+    }
+  }
+  
+  @media (max-width: 950px) {
+    /* Tablets */
+    .container{
+        background-color:red;
+    }
+    
+  }
+  
+  @media (max-width: 600px) {
+    /* Phones */
+    .container{
+        background-color:yellow;
+    }
+    .text{
+        display: none;
+    }
+  }
+
+  

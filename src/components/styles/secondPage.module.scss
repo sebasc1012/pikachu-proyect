@@ -1,0 +1,33 @@
+
+.container {
+        padding: 0;
+        margin: 0;
+        background-image: linear-gradient(
+            180deg,
+            hsl(174deg 25% 33%) 0%,
+            hsl(172deg 34% 34%) 18%,
+            hsl(171deg 42% 34%) 35%,
+            hsl(169deg 51% 35%) 51%,
+            hsl(167deg 60% 35%) 64%,
+            hsl(165deg 68% 35%) 75%,
+            hsl(163deg 75% 36%) 84%,
+            hsl(160deg 77% 38%) 91%,
+            hsl(157deg 73% 40%) 96%,
+            hsl(152deg 67% 44%) 100%
+          );
+        height: 100vh;
+    }
+
+    
+
+    .image_Container{
+        width: 600px;
+        height: 300px;
+        margin: auto;
+    }
+
+    .image{
+        width: 100%;
+        object-fit: cover;
+        display: block;
+    }

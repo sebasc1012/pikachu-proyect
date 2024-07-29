@@ -1,15 +1,15 @@
-.imgContainer{
+.Container_Image{
     display: flex;
     justify-content: end;
     
 }
-.contenedorUno{
+.container_Title{
     width: 680px;
     height: 250px;
-    margin: 30px 170px 0px 0px;
+  
 }
-.contenedorDos{
-    width: 450px;
+.container_picture{
+    max-width: 450px;
     height: 400px;
 }
 .imgUno{
@@ -25,17 +25,15 @@
     width: 100%;
     height: 100%;
 }
-.contenedorTitle{
-    
+.title_Page{  
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-   
     margin-top: -140px;
 }
 
-.title{
+.principal_title{
    
     color:#FECB08;
     font-family: "Poppins", sans-serif;
@@ -44,7 +42,7 @@
    margin: 20px 0px 0px 0px;
 }
 
-.subtitle {
+.principal_subtitle{
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     color: white;
@@ -53,3 +51,15 @@
     margin: 0;
 
 }
+
+@media (max-width: 1500px) {
+    /* Laptop */
+  }
+  
+  @media (max-width: 1100px) {
+    /* Tablets */
+  }
+  
+  @media (max-width: 550px) {
+    /* Phones */
+  }

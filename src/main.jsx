@@ -1,10 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { Characters } from './characters.jsx'
-import { PokemonApp } from './Landing-page/pokemonApp.jsx'
+import { BrowserRouter } from 'react-router-dom'
+import { PokemonApp } from './components/templates/pokemonApp.jsx'
+import "../src/components/styles/global.scss"
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <PokemonApp></PokemonApp>
+      <BrowserRouter>
+        <PokemonApp/>
+      </BrowserRouter>
   </React.StrictMode>,
 )
