@@ -1,21 +1,23 @@
 import React from 'react'
+import style from '../MobileMenu/MobileMenu.module.scss'
+import { NavLink } from 'react-router-dom';
 
-export const MobileMenu = ({isOpen , onDismiss}) => {
+export const MobileMenu = () => {
 
-    if(!isOpen){
-        return null;
-    }
 
   return (
-    <>
-      <div>
-        <button onClick={onDismiss}>Dismiss Menu</button>
-        <nav>
-            <a>Characters</a>
-            <a>Blatle Mode</a>
-        </nav>
+    
+
+      <div className={style.movileMenu}>
+          <a>
+            <NavLink to="/Character" className={style.option} >Characters </NavLink>
+          </a>
+          <a>
+            <NavLink to="/Batle" className={style.option} >Pokemon-Battle</NavLink>
+          </a>
       </div>
-    </>
+        
+   
   )
 }
 
