@@ -1,6 +1,6 @@
 import React from 'react'
-import { useFetch } from '../../../../hooks/useFetch'
 import style from '../sectionCard/SectionCard.module.scss'
+import { useFetch } from '../../../hooks/useFetch'
 
 export const SectionCard = () => {
 
