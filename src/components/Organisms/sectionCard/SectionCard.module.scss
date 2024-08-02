@@ -1,3 +1,5 @@
+@import 'src/components/styles/global.scss';
+
 .image_Container{
     width: clamp(300px , 60%, 600px);
     height: 300px;
@@ -21,7 +23,7 @@
 
 .gridPokemon{
     
-    background-color: white;
+    background-color: $card-color;
     border: solid 3px #1F2937;
     border-radius: 18px;
     width: clamp(100px , 20%, 200px);
@@ -55,6 +57,8 @@
     font-size: clamp(0.4rem , 40% + 0.3rem, 4rem);
 }
 
+
+.buttonPage{}
 
   
   @media (max-width: 1024px) {
