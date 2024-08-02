@@ -27,16 +27,16 @@ export const PopapPokemons = ({pokemon, setShowPopup}:Props) => {
       <h1> { pokemon.name } </h1>
       <h4>{data?.height}</h4>
       <p>{data?.base_experience}</p>
-
+      <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data?.id}.svg`}/>
       {
         getAbilities?.map((abi)=>(
-          <p key={`${pokemon.name}+${pokemon.id}`}>{abi.ability}</p>
+          <p key={pokemon.id}>{abi.ability}</p>
         ))
       }
 
       {
-         getMoves?.map((sec)=> (
-          <p key={pokemon.id}>{sec.moves}</p>
+         getMoves?.map((sec, index)=> (
+          <p key={index}>{sec.moves}</p>
         ))
       }
       

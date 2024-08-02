@@ -1,24 +1,19 @@
-import { ChangeEvent, useState } from "react"
+import { ChangeEventHandler } from "react";
 
-const SearchBar = () => {
+ interface searchAllPokemon{
+  value:string;
+  onChange: ChangeEventHandler<HTMLInputElement>;
+ }
 
- 
-
-const [valueInput, setValueInput] = useState('');
-
-
-const handleInput = (event :ChangeEvent<HTMLInputElement>) => {
-    
-    setValueInput(event.target.value);
-   
-}
-
-    
+export const SearchBar = ({ value, onChange }:searchAllPokemon) => {
+  
   return (
-    <>
-      <input type="text" placeholder="Search your character" name="Search" onChange={handleInput} value={valueInput}/>
-    </>
+      <input  
+      type='text' 
+      placeholder='Search your favorite Pokemon' 
+      value={value} 
+      onChange={onChange} 
+      name='search' />
   )
 }
 
-export default SearchBar

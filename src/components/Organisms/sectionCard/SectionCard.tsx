@@ -1,9 +1,10 @@
 import style from './SectionCard.module.scss'
 import { useFetch} from '../../../hooks/useFetch'
 import { PopapPokemons } from '../../molecules/PopapPokemons/PopapPokemons'
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
 import { Pokemon, PokemonResponseAPI, ReturnResult } from '../../../models/Pokemons';
-import SearchBar from '../../molecules/SearchBar/SearchBar';
+import {SearchBar} from '../../molecules/SearchBar/SearchBar';
+import { useSearch } from '../../../hooks/useSearch';
 
 
 
@@ -16,22 +17,16 @@ export const SectionCard = () => {
   const [offset, setOffSet] = useState(0);
   const [showPopup, setShowPopup] = useState<boolean>(false)
   const [addPokemon , setAddPokemon] = useState<ReturnResult>()
-  const [search, setSearch]= useState('')
+  const [search, setSearch] = useState("")
+
+  const {pokemonsFiltered}=useSearch(search)
+
 
 
    const pokeUrl = ('https://pokeapi.co/api/v2/pokemon')
    const {data, isLoading}: useFertchResults = useFetch<Pokemon>(`${pokeUrl}?limit=12&offset=${offset}`)
-   const {data: AllPokemons, isLoading: charge}: useFertchResults = useFetch<Pokemon>(`${pokeUrl}?limit=10000&offset=0}`)
 
   
-
-   const getAllPokemons = AllPokemons?.results.map((item)=> ({
-    name:item.name,
-    id:item.url.split('/').at(-2) as string
-    
-   }));
-   
-
    const getPokemon = data?.results.map((item)=> ({
     name:item.name,
     id:item.url.split('/').at(-2) as string
@@ -39,7 +34,7 @@ export const SectionCard = () => {
    }))
    
    const handlePopup = (id:string)=> {
-    const pokemon = !search? getPokemon?.find( pokemon => pokemon.id === id ) : getAllPokemons?.find( pokemon => pokemon.id === id );
+    const pokemon = !search? getPokemon?.find( pokemon => pokemon.id === id ) : pokemonsFiltered?.find( pokemon => pokemon.id === id );
     if (!pokemon) return;
     setAddPokemon(pokemon)
     setShowPopup(!showPopup)
@@ -56,21 +51,10 @@ export const SectionCard = () => {
    if (isLoading) return <p>....Loading</p>;
 
 
-
-   const searchInput = (event:ChangeEvent<HTMLInputElement>) => {
-
-      setSearch(event.target.value)
-   }
-
-   const pokemonsFiltered = AllPokemons?.results.filter((dato)=> dato.name.toLocaleLowerCase().startsWith(search)).map((poke)=> ({
-    name:poke.name,
-    id:poke.url.split('/').at(-2)!
-   }))
-
   return (
 
     <>
-      <input type='text' placeholder='hold me' value={search} onChange={searchInput} name='search' />
+         <SearchBar value={search} onChange={(event)=> setSearch(event.target.value)} />
         <div className={style.image_Container}>
              <img className={style.image} src='src/assets/img/LogoSecondPage.png' alt='logo'/>
         </div>
