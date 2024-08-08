@@ -1,9 +1,12 @@
 @import 'src/components/styles/global.scss';
 
 .image_Container{
-    width: clamp(300px , 60%, 600px);
-    height: 300px;
+    
     margin: auto;
+    padding-top: 20px;
+    width: clamp(300px , 60%, 600px);
+    height: 250px;
+
 }
 
 .image{
@@ -11,7 +14,11 @@
     object-fit: cover;
     display: block;
 }
-
+.inputSection{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
 
 .sectionGrid{
     display: flex;
@@ -24,7 +31,7 @@
 .gridPokemon{
     
     background-color: $card-color;
-    border: solid 3px #1F2937;
+    border: solid 3px hsl(215deg 28% 17%);
     border-radius: 18px;
     width: clamp(100px , 20%, 200px);
     display: flex;
@@ -35,6 +42,7 @@
 
         &:hover{
             cursor: pointer;
+            transform: scale(1.1);
         }
 }
 
@@ -53,8 +61,34 @@
 .pokemonName{
     
     text-align: center;
-    font-family: "Press Start 2P", system-ui;
+    font-family: $font-pokemon;
     font-size: clamp(0.4rem , 40% + 0.3rem, 4rem);
+}
+
+.buttonContainer{
+    margin-top: 40px;
+   padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: clamp(150px , 40% , 550px);
+}
+
+.buttonPage{
+    width: 90px;
+    height: 45px;
+    background-color: black;
+    border-radius: 30px;
+    color: white;
+    font-family: $font-pokemon;
+    font-size: small;
+    border: none;
+    cursor: pointer;
+    
+}
+
+.buttonPage:hover{
+   transform: scale(1.2);
+    color: rgb(49, 174, 49);
 }
 
 
@@ -83,4 +117,10 @@
 
     }
 
+    .image_Container{
+        height: 150px;
+    }
+
   }
+
+  

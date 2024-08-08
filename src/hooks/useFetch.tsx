@@ -1,91 +1,76 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 
-
-interface FetcError{
-  code:number;
-  message:string;
+interface FetcError {
+  code: number;
+  message: string;
 }
-interface FetchState <T>{
+interface FetchState<T> {
   data: T | null;
-  isLoading:boolean;
-  hasError:boolean;
-  error:FetcError | null;
+  isLoading: boolean;
+  hasError: boolean;
+  error: FetcError | null;
 }
 
- export function useFetch<T>(url: string) {
+export function useFetch<T>(url: string) {
+  const [state, setState] = useState<FetchState<T>>({
+    data: null,
+    isLoading: true,
+    hasError: false,
+    error: null,
+  });
 
-  const [state,setState]= useState<FetchState<T>>({
-    data:null,
-    isLoading:true,
-    hasError:false,
-    error:null
-  })
+  useEffect(() => {
+    getPokemons();
+  }, [url]);
 
-
-  useEffect(()=>{
-        getPokemons()
-  },[url])
-
-
-const setLoadingState =()=>{
+  const setLoadingState = () => {
     setState({
-        data:null,
-        isLoading:true,
-        hasError:false,
-        error:null
-      })
+      data: null,
+      isLoading: true,
+      hasError: false,
+      error: null,
+    });
+  };
+  const getPokemons = async () => {
+    setLoadingState();
 
-}
-  const getPokemons = async ()=> {
-
-    setLoadingState()
-
-    try{
-    const response = await fetch(url);
-    const data = await response.json()
-    if(response.ok) {
-      setState({
-        data:data as T,
-        isLoading:false,
-        hasError:false,
-        error:null
-    })
-     }else{
-      setState({
-        data:null,
-        isLoading:false,
-        hasError:true,
-        error:{
-            code:response.status,
-            message:response.statusText
-        }
-       })
-     }
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      if (response.ok) {
+        setState({
+          data: data as T,
+          isLoading: false,
+          hasError: false,
+          error: null,
+        });
+      } else {
+        setState({
+          data: null,
+          isLoading: false,
+          hasError: true,
+          error: {
+            code: response.status,
+            message: response.statusText,
+          },
+        });
+      }
     } catch (error) {
-       setState({
-        data:null,
-        isLoading:false,
-        hasError:true,
-        error:{
-            code:0,
-            message:'network mistake'
-        }
-       })
-     }
-
-
+      setState({
+        data: null,
+        isLoading: false,
+        hasError: true,
+        error: {
+          code: 0,
+          message: "network mistake",
+        },
+      });
     }
+  };
 
-    return {
-      data:state.data,
-      isLoading:state.isLoading,
-      hasError:state.hasError
-
-  }
-      
-  }
-
-   
-
-
-
+  return {
+    data: state.data,
+    isLoading: state.isLoading,
+    hasError: state.hasError,
+  };
+}

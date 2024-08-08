@@ -1,17 +1,17 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { useFetch } from "./useFetch";
 import { Pokemon, PokemonResponseAPI } from "../models/Pokemons";
 
-interface useFertchResults {
+interface useFetchResults {
   data: PokemonResponseAPI | null;
   isLoading: boolean;
 }
 
-export const useSearch = (search: string) => {
-  const { data, isLoading }: useFertchResults = useFetch<Pokemon>(
+export const useSearch = (debounceInput: string) => {
+  const { data }: useFetchResults = useFetch<Pokemon>(
     `https://pokeapi.co/api/v2/pokemon/?limit=10000&offset=0}`
   );
-  
+
   const pokemonsFiltered = useMemo(() => {
     const allPokemons = data?.results.map((item) => ({
       name: item.name,
@@ -19,11 +19,13 @@ export const useSearch = (search: string) => {
     }));
 
     return allPokemons?.filter((dato) =>
-      dato.name.toLocaleLowerCase().startsWith(search)
+      dato.name.toLocaleLowerCase().startsWith(debounceInput)
     );
-  }, [search]);
+  }, [debounceInput]);
 
   return {
     pokemonsFiltered,
   };
 };
+
+/* move to input component */

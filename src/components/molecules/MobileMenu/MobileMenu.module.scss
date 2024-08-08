@@ -1,4 +1,4 @@
-
+@import 'src/components/styles/global.scss';
 .mobileMenu{
     display: none;
 }
@@ -10,12 +10,11 @@
     flex-direction: column;
     padding: 20px;
     gap: 35px;
-    border: solid 2px red;
     position: absolute;
     top: 70px;
     right: 0;
     background-color: black;
-    height: 100vh;
+    height: 100px;
     width: 200px;
     z-index: 100;
     
@@ -23,7 +22,7 @@
  .option{
     color: white;
     text-decoration: none;
-    font-family: "Poppins", sans-serif;
+    font-family:$font-tittle;
     font-weight: 600;
     
     

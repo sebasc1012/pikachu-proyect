@@ -1,47 +1,67 @@
 import { useFetch } from "../../../hooks/useFetch";
-import { ReturnResult } from "../../../models/Pokemons"
+import { ReturnResult } from "../../../models/Pokemons";
 import { ResponsePokemon } from "../../../models/ResponsePokemon";
+import style from "../PopapPokemons/PopapPokemons.module.scss";
 
 interface Props {
   pokemon: ReturnResult;
   setShowPopup: () => void;
 }
 
+export const PopapPokemons = ({ pokemon, setShowPopup }: Props) => {
+  const { data, isLoading } = useFetch<ResponsePokemon>(
+    `https://pokeapi.co/api/v2/pokemon/${pokemon.id}`
+  );
 
-export const PopapPokemons = ({pokemon, setShowPopup}:Props) => {
 
- const {data, isLoading} = useFetch<ResponsePokemon>(`https://pokeapi.co/api/v2/pokemon/${pokemon.id}`)
 
- const getAbilities = data?.abilities.map((item)=> ({
-  ability:item.ability.name
- }))
- const getMoves = data?.moves.map((item)=>({
-  moves:item.move.name
- }) ).filter((pokemon, index) =>  index < 3);
-
- if (isLoading) return <p>....Loading</p>;
+  if (isLoading) return <p>....Loading</p>;
 
   return (
-    <section>
-      <button onClick={setShowPopup}>X</button>
-      <h1> { pokemon.name } </h1>
-      <h4>{data?.height}</h4>
-      <p>{data?.base_experience}</p>
-      <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data?.id}.svg`}/>
-      {
-        getAbilities?.map((abi)=>(
-          <p key={pokemon.id}>{abi.ability}</p>
-        ))
-      }
+    <section className={style.containerPopap}>
+      <button className={style.closeButton} onClick={setShowPopup}>
+        X
+      </button>
+      <div className={style.pokeballContainer}>
+        <img alt="pokeball" src="src/assets/img/Pokeball.png" />
+      </div>
 
-      {
-         getMoves?.map((sec, index)=> (
-          <p key={index}>{sec.moves}</p>
-        ))
-      }
-      
+      <div className={style.heightExperience}>
+        <ul>
+          {" "}
+          Height:
+          <li>{data?.height}</li>
+        </ul>
+        <ul>
+          {" "}
+          Experience:
+          <li>{data?.base_experience}</li>
+        </ul>
+      </div>
+
+      <div className={style.containerImagesInfo}>
+        <div className={style.abilitiesMoves}>
+          <ul className={style.abilities}>
+            {" "}
+            Abilities:
+            <li>{data?.abilities.map((i) => i.ability.name)}</li>
+          </ul>
+          <ul className={style.abilities}>
+            Moves:
+            {data?.moves
+              .map((e) => <li key={`popap_${pokemon.id}`}>{e.move.name}</li>)
+              .filter((pokemon, index) => index < 3)}
+          </ul>
+        </div>
+
+        <div className={style.imgContainer}>
+          <img
+            className={style.imagePokemon}
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data?.id}.svg`}
+          />
+          <h4> {pokemon.name} </h4>
+        </div>
+      </div>
     </section>
-  )
-}
-
-
+  );
+};
