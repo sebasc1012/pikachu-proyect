@@ -1,0 +1,27 @@
+@import 'src/components/styles/global.scss';
+
+.inputStyle{
+    font-family:$font-pokemon;
+    font-size: clamp(0.2rem , 35% + 0.3rem, 2rem);
+    width: clamp(290px, 60%, 450px );
+    height: 30px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1.5px solid lightgrey;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0 0 20 -18px;
+}
+
+.inputStyle:hover {
+    border: 2px solid lightgrey;
+    box-shadow: 0px 0px 20px -17px;
+  }
+  
+  .inputStyle:active {
+    transform: scale(0.95);
+  }
+  
+  .inputStyle:focus {
+    border: 2px solid grey;
+  }
