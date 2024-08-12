@@ -10,7 +10,7 @@ export const HeaderBar = () => {
   return (
     <>
       <nav className={style.container}>
-        <div className={style.imgContainerLogo}>
+        <div title="Home" className={style.imgContainerLogo}>
           <nav  ><Link className={style.link} to="/"></Link>{" "}</nav>
         </div>
         <ul className={style.sectionContainer}>
