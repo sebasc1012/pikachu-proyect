@@ -10,20 +10,18 @@ export const HeaderBar = () => {
   return (
     <>
       <nav className={style.container}>
-        <h4>
-          <Link className={style.logo} to="/">
-            Home
-          </Link>{" "}
-        </h4>
+        <div className={style.imgContainerLogo}>
+          <nav  ><Link className={style.link} to="/"></Link>{" "}</nav>
+        </div>
         <ul className={style.sectionContainer}>
           <li>
             <NavLink to="/Character" className={style.text}>
-              Characters
+              Character
             </NavLink>
           </li>
           <li>
             <NavLink to="/Battle" className={style.text}>
-              Pokemon-Battle
+              Battle
             </NavLink>
           </li>
         </ul>

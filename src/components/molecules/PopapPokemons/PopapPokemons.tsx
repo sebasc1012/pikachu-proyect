@@ -8,9 +8,10 @@ interface Props {
   setShowPopup: () => void;
 }
 
+const urlDefault = 'https://pokeapi.co/api/v2/pokemon/'
 export const PopapPokemons = ({ pokemon, setShowPopup }: Props) => {
   const { data, isLoading } = useFetch<ResponsePokemon>(
-    `https://pokeapi.co/api/v2/pokemon/${pokemon.id}`
+    `${urlDefault}${pokemon.id}`
   );
 
 

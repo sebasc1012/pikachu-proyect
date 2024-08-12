@@ -13,7 +13,7 @@ const imageList: imageItems[] = [
     src: "src/assets/img/bulbasorCard.png",
     name: "Bulbasor",
     type: "Rock",
-    imgType: "src/assets/img/piedra.png",
+    imgType: "src/assets/img/rock.png",
     background: "#C5B78C",
   },
   {
@@ -65,8 +65,10 @@ export const CardMove = () => {
 
   useEffect(() => {
     if (!window.matchMedia("(prefers-reduce-motion: reduce)").matches) {
-      const innerConter = Array.from(scrollerInnerRef?.current?.children ?? []);
-      innerConter.forEach((item) => {
+      const innerCounter = Array.from(
+        scrollerInnerRef?.current?.children ?? []
+      );
+      innerCounter.forEach((item) => {
         const duplicateItem = item.cloneNode(true) as HTMLElement;
         duplicateItem.setAttribute("aria-hidden", "true");
         scrollerInnerRef?.current?.appendChild(duplicateItem);

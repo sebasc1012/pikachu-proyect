@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import { Character, Battle, Home } from "../pages";
-import { HeaderBar } from "../Organisms/HeaderBar/HeaderBar";
-import { Fight } from "../pages/Fight";
+import { Character, Battle, Home } from "./components/pages";
+import { HeaderBar } from "./components/Organisms/HeaderBar/HeaderBar";
+import { Fight } from "./components/pages/Fight";
 
 export const PokemonApp = () => {
   return (
@@ -13,9 +13,6 @@ export const PokemonApp = () => {
         <Route path="/Battle" element={<Battle />} />
         <Route path="/Fight/:id" element={<Fight />} />
       </Routes>
-    
     </>
   );
 };
-
-/* src */

@@ -27,10 +27,14 @@ export const SectionCard = () => {
     `${pokeUrl}?limit=12&offset=${offset}`
   );
 
-  const MapPokemon = data?.results.map((item) => ({
-    name: item.name,
-    id: item.url.split("/").at(-2) as string /* remove as */,
-  }));
+  const MapPokemon = data?.results.map((item) => {
+    const urlSegment = item.url.split('/');
+    const id = urlSegment[urlSegment.length -2];
+    return{
+      name: item.name,
+      id: id ?? '',
+    }
+  });
 
   const handlePopup = (id: string) => {
     const pokemon = !search
@@ -38,7 +42,7 @@ export const SectionCard = () => {
       : pokemonsFiltered?.find((pokemon) => pokemon.id === id);
     if (!pokemon) return;
     setAddPokemon(pokemon);
-    setShowPopup(!showPopup);
+    setShowPopup(true);
   };
 
   const handlePaginationMore = () => {
@@ -70,7 +74,7 @@ export const SectionCard = () => {
         <SearchBar
           value={search}
           onChange={(event) => setSearch(event.target.value)}
-          placeholder="Search your favorite Pokemon"
+          placeholder="Search your favorite"
         />
       </div>
 

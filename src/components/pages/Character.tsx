@@ -1,6 +1,6 @@
 import style from "../pages/Character.module.scss";
-import { MainLayout } from "../atoms/MainContainer/MainContainer";
-import { SectionCard } from "../Organisms/sectionCard/SectionCard";
+import { MainLayout } from "../molecules/MainContainer/MainContainer";
+import { SectionCard } from "../Organisms/SectionCard/SectionCard";
 
 export const Character = () => {
   return (

@@ -1,18 +1,24 @@
+import { NavLink } from "react-router-dom";
+import style from "./PopPapFight.module.scss";
 
 interface resultProps {
-    result : string;
+  result: string;
 }
 
-
-export const PopPapFight = ({result}: resultProps) => {
+export const PopPapFight = ({ result }: resultProps) => {
   return (
     <>
-    <div>
-        <h1>{result}</h1>
-
-    </div>
-      
+      <div className={style.popPapContainer}>
+        <h1 className={style.result}>{result}</h1>
+        <button className={style.buttonGame}>
+          <NavLink
+            style={{ textDecoration: "none", color: "black" }}
+            to="/Battle"
+          >
+            END GAME
+          </NavLink>
+        </button>
+      </div>
     </>
-  )
-}
-
+  );
+};

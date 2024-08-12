@@ -1,4 +1,4 @@
-import { SectionCard } from "../sectionCard/SectionCard"
+import { SectionCard } from "../SectionCard/SectionCard"
 import {  NavLink } from "react-router-dom";
 import style from 'src/components/Organisms/BattleLoading/BattleLoading.module.scss'
 

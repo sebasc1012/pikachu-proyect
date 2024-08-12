@@ -1,4 +1,4 @@
-import { MainLayout } from "../atoms/MainContainer/MainContainer";
+import { MainLayout } from "../molecules/MainContainer/MainContainer";
 import { SectionCardBattle } from "../Organisms/SectionCardBattle/SectionCardBattle";
 import style from "../pages/Battle.module.scss";
 

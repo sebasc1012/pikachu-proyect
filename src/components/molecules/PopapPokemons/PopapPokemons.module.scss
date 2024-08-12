@@ -2,7 +2,7 @@
 
 
 .containerPopap{
-    right: 40vw;
+    
     background-image: linear-gradient(
         180deg,
         hsl(0deg 99% 72%) 0%,
@@ -17,9 +17,14 @@
         );
      position: relative;
     position: absolute;
-    top: 400px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
     border-radius: 30px;
-    width: 600px;
+    width: clamp(300px , 65%, 600px);
+    height: 400px;
     font-family: $font-pokemon;
     border: solid 3px black;
 
@@ -28,7 +33,7 @@
 .closeButton{
     background-color: transparent;
     border: none;
-    color: rgb(200, 125, 125);
+    color: hsl(146, 64%, 2%);
     position: absolute;
     top: -35px;
     right: 20px;
@@ -56,16 +61,12 @@
     justify-content: flex-end;
     margin-right: 30px;
     gap: 50px;
-
     & ul {
-
         & li {
             margin-top: 20px;
-            font-size: small;
+            font-size: 1rem;
             text-align: center;
             list-style: none;
-            
-
         }
     }
 }
@@ -97,9 +98,9 @@
    
 }
 .imgContainer{
-    width: 200px;
+    width: clamp(100px , 60%, 300px);
     height: 240px;
-    padding: 10px;
+    padding: 40px;
 
     & img {
         width: 100%;
@@ -114,4 +115,57 @@
         margin-top: 0;
     }
 
+}
+
+@media (max-width: 1024px) {
+    .heightExperience{
+        gap: 30px;
+    }
+ 
+  }
+  
+  @media (max-width: 760px) {
+    .containerPopap{
+        height: 350px;
+    }
+    .pokeballContainer{
+        width: 100px;
+        height: 100px;
+    }
+    .heightExperience{
+        gap: 0px;
+        font-size: 0.7rem;
+        margin-right: 10px;
+        & ul {
+
+            & li {
+                margin-top: 10px;
+                font-size: 0.6rem;
+            }
+        }
+    }
+
+    .abilities{
+        margin-left: 30px;
+        font-size: 0.8rem;
+    
+        & li {
+            text-align: start;
+            font-size: 0.6rem;
+        }
+    
+  }
+  .imgContainer{
+    height: 200px;
+    transform: translateX(-20px);
+    margin-left: -40px;
+
+
+    & h4 {
+        text-align: start;
+        font-size: 0.7rem;
+        margin-top: -20px;
+    }
+
+}
 }

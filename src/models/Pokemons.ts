@@ -16,5 +16,5 @@ export interface Pokemon {
    }
    export interface ReturnResult {
     name:string;
-    id:string;
+    id:string  ;
    }
