@@ -10,7 +10,7 @@ import {
 import { SearchBar } from "../../molecules/SearchBar/SearchBar";
 import { useSearch } from "../../../hooks/useSearch";
 
-interface useFertchResults {
+interface UseFetchResults {
   data: PokemonResponseAPI | null;
   isLoading: boolean;
 }
@@ -23,7 +23,7 @@ export const SectionCard = () => {
   const { pokemonsFiltered } = useSearch(debounceInput);
 
   const pokeUrl = "https://pokeapi.co/api/v2/pokemon";
-  const { data, isLoading }: useFertchResults = useFetch<Pokemon>(
+  const { data, isLoading }: UseFetchResults = useFetch<Pokemon>(
     `${pokeUrl}?limit=12&offset=${offset}`
   );
 

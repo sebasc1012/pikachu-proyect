@@ -1,9 +1,17 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,
     "types": ["node", "jest", "@testing-library/jest-dom"],
-    "jsx": "react-jsx"
+    "target": "es6",
+    "module": "esnext",
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "test/**/*"],
   "exclude": ["node_modules"],
+  "resolveJsonModule": true
 }

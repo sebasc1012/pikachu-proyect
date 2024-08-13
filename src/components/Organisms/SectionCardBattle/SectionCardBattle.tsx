@@ -8,9 +8,9 @@ import {
 } from "../../../models/Pokemons";
 import { SearchBar } from "../../molecules/SearchBar/SearchBar";
 import style from "./SectionCardBattle.module.scss";
-import { Navigate, NavLink, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
-interface useFertchResults {
+interface UseFetchResults {
   data: PokemonResponseAPI | null;
   isLoading: boolean;
 }
@@ -27,7 +27,7 @@ export const SectionCardBattle = () => {
 
   const navigate = useNavigate();
   const pokeUrl = "https://pokeapi.co/api/v2/pokemon";
-  const { data, isLoading }: useFertchResults = useFetch<Pokemon>(
+  const { data, isLoading }: UseFetchResults = useFetch<Pokemon>(
     `${pokeUrl}?limit=200&offset=${offset}`
   );
 
@@ -45,7 +45,7 @@ export const SectionCardBattle = () => {
       setDebounceInput(search);
     }, 500);
     return () => clearTimeout(delayInputTimeOut);
-  }, [search, 500]);
+  }, [search]);
 
   const pokemonToBattle = (pokemon: ReturnResult) => {
     setPokemonSelected(pokemon);

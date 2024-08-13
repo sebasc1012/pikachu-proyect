@@ -8,13 +8,11 @@ interface Props {
   setShowPopup: () => void;
 }
 
-const urlDefault = 'https://pokeapi.co/api/v2/pokemon/'
+const urlDefault = "https://pokeapi.co/api/v2/pokemon/";
 export const PopapPokemons = ({ pokemon, setShowPopup }: Props) => {
   const { data, isLoading } = useFetch<ResponsePokemon>(
     `${urlDefault}${pokemon.id}`
   );
-
-
 
   if (isLoading) return <p>....Loading</p>;
 
@@ -24,17 +22,19 @@ export const PopapPokemons = ({ pokemon, setShowPopup }: Props) => {
         X
       </button>
       <div className={style.pokeballContainer}>
-        <img alt="pokeball" src="src/assets/img/Pokeball.png" />
+        <img
+          role="imagePokemon"
+          alt="pokeball"
+          src="src/assets/img/Pokeball.png"
+        />
       </div>
 
       <div className={style.heightExperience}>
         <ul>
-          {" "}
           Height:
-          <li>{data?.height}</li>
+          <li role="hightPokemon">{data?.height}</li>
         </ul>
         <ul>
-          {" "}
           Experience:
           <li>{data?.base_experience}</li>
         </ul>
@@ -43,7 +43,6 @@ export const PopapPokemons = ({ pokemon, setShowPopup }: Props) => {
       <div className={style.containerImagesInfo}>
         <div className={style.abilitiesMoves}>
           <ul className={style.abilities}>
-            {" "}
             Abilities:
             <li>{data?.abilities.map((i) => i.ability.name)}</li>
           </ul>
@@ -60,7 +59,7 @@ export const PopapPokemons = ({ pokemon, setShowPopup }: Props) => {
             className={style.imagePokemon}
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data?.id}.svg`}
           />
-          <h4> {pokemon.name} </h4>
+          <h4 role="namePokemon">{pokemon.name}</h4>
         </div>
       </div>
     </section>

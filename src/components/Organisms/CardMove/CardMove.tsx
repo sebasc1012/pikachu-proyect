@@ -1,14 +1,14 @@
 import { useEffect, useRef } from "react";
 import "../CardMove/CardMove.scss";
 
-interface imageItems {
+interface ImageItems {
   src: string;
   name: string;
   type: string;
   imgType: string;
   background: string;
 }
-const imageList: imageItems[] = [
+const imageList: ImageItems[] = [
   {
     src: "src/assets/img/bulbasorCard.png",
     name: "Bulbasor",

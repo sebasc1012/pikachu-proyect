@@ -1,13 +1,13 @@
 import { ChangeEventHandler } from "react";
 import style from './SearchBar.module.scss'
 
-interface searchAllPokemon {
+interface SearchAllPokemon {
   value: string;
   placeholder:string;
   onChange: ChangeEventHandler<HTMLInputElement>;
 }
 
-export const SearchBar = ({ value, onChange, placeholder }: searchAllPokemon) => {
+export const SearchBar = ({ value, onChange, placeholder }: SearchAllPokemon) => {
   return (
     <input
      className={style.inputStyle}

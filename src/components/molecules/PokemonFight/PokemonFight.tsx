@@ -1,4 +1,4 @@
-interface pokemonFightProps {
+interface PokemonFightProps {
   imgUrl: string;
   name: string | undefined;
   className: string;
@@ -10,7 +10,7 @@ export const PokemonFight = ({
   name,
   className,
   experience
-}: pokemonFightProps) => {
+}: PokemonFightProps) => {
   return (
     <div className={className}>
       <h5>{experience}</h5>

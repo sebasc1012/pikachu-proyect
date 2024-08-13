@@ -1,13 +1,18 @@
-import { render } from "@testing-library/react"
+import { render} from "@testing-library/react"
 import { MainLayout } from "./MainContainer"
+/**
+ * @jest-environment jsdom
+ */
 
 describe('Testing <MainContainer.tsx/>', () => {
 
-    const className = 'classExample'
+    const className = 'Testing'
 
-  test('should be rendering the props children and className', () => {
+  test('should be rendering the children in this case its a <p></p> and className', () => {
+    render(<MainLayout className={className}>
+      <p>Test</p>
+    </MainLayout>)
 
-
-    render(<MainLayout children= '' className={className}/>)
+    
   })  
 })
