@@ -1,0 +1,153 @@
+@import "src/components/styles/global.scss";
+
+.headerContainer {
+  font-family: $font-tittle;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & h1 {
+    color: hsl(0deg 2% 77%);
+    font-weight: 700;
+    font-size: clamp(2.5rem, 7.5vw, 8rem);
+    margin: 0;
+    padding-top: 30px;
+  }
+  & h2 {
+    color: white;
+    font-size: clamp(1.1rem, 3.1vw, 4rem);
+    font-weight: 700;
+    margin: 0 0 20px 0;
+  }
+}
+
+.characterGrid {
+  width: clamp(300px, 70%, 1150px);
+  height: 570px;
+  margin: auto;
+  background-color: hsl(205deg 48% 18%);
+  border-radius: 45px;
+  padding: 20px;
+}
+
+.inputContainer {
+  margin: 15px 0 20px 30px;
+
+  & input {
+    width: clamp(250px, 50%, 400px);
+    height: 20px;
+    background-color: (192deg 63% 71%);
+    font-size: clamp(0.3rem, 45% + 0.2rem, 4rem);
+  }
+}
+
+.sectionBattle {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  height: 430px;
+  overflow: scroll;
+}
+
+.cardPokemon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: solid 3px hsl(215deg 28% 17%);
+  border-radius: 18px;
+  background-color: $card-color;
+  width: clamp(100px, 40%, 150px);
+  box-shadow: 2px 4px 9px hsl(0deg 0% 0% / 0.95);
+  cursor: pointer;
+
+
+  & p {
+    text-align: center;
+    font-family: $font-pokemon;
+    font-size: clamp(0.4rem, 40% + 0.3rem, 4rem);
+  }
+}
+.cardPokemon:hover {
+  background-color: hsla(51, 91%, 63%, 0.95);
+  transform: scale(1.1);
+ 
+}
+.selected{
+  background-color: hsla(51, 91%, 63%, 0.95);
+  transform: scale(1.1);
+}
+
+.imageContainer {
+  align-self: center;
+  width: clamp(100px, 70%, 200px);
+  height: 150px;
+
+  & img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  width: 300px;
+
+  & button {
+    width: 90px;
+    height: 45px;
+    background-color: black;
+    border-radius: 30px;
+    color: white;
+    font-family: $font-pokemon;
+    font-size: small;
+    border: none;
+    cursor: pointer;
+  }
+}
+.buttonSelect{
+  display: block;
+  position: relative;
+  height: 50px;
+
+}
+.buttonBattle {
+ position: absolute;
+ margin: auto;
+ left: 0;
+ right: 0;
+ top: 15px;
+  width: 150px;
+  height: 50px;
+  border-radius: 20px;
+  color: black;
+  font-family: $font-tittle;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .characterGrid {
+    height: 680px;
+  }
+  .sectionBattle {
+    height: 520px;
+  }
+}
+@media (max-width: 760px) {
+  .characterGrid {
+    border-radius: 15px;
+    height: 600px;
+  }
+  .inputContainer {
+    margin: auto;
+
+    & input {
+      height: 10px;
+      margin-bottom: 10px;
+    }
+  }
+}

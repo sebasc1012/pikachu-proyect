@@ -1,0 +1,68 @@
+@import "src/components/styles/global.scss";
+
+.popPapContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: clamp(300px, 65%, 600px);
+  height: 400px;
+  background-image: linear-gradient(
+    180deg,
+    hsl(194deg 64% 29%) 0%,
+    hsl(186deg 60% 28%) 29%,
+    hsl(177deg 56% 28%) 47%,
+    hsl(168deg 53% 27%) 59%,
+    hsl(160deg 49% 26%) 69%,
+    hsl(151deg 46% 25%) 76%,
+    hsl(143deg 43% 25%) 83%,
+    hsl(135deg 40% 24%) 89%,
+    hsl(126deg 36% 23%) 94%,
+    hsl(117deg 33% 23%) 100%
+  );
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 47px;
+  box-shadow: 2px 4px 9px hsl(0deg 0% 0% / 0.95);
+  animation: slide 700ms ease-in;
+}
+
+@keyframes slide {
+  from {
+    scale: 0.5;
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    scale: 1;
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+.result {
+  margin-top: 120px;
+  font-family: $font-pokemon;
+  color: white;
+  font-size: clamp(0.5rem, 1.1vw + 1.4rem, 4.5rem);
+  text-align: center;
+}
+
+.buttonGame {
+  font-family: $font-pokemon;
+  font-size: clamp(0.5rem, 1.8vw + 0.5rem, 1.2rem);
+  border-radius: 15px;
+  width: clamp(100px, 50%, 200px);
+  height: 80px;
+  border: none;
+  box-shadow: 2px 4px 9px hsl(0deg 0% 0% / 0.95);
+  margin: auto;
+  cursor: pointer;
+  transition: transform 500ms;
+}
+.buttonGame:hover {
+  transform: scale(1.1);
+}

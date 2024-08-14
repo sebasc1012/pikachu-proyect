@@ -1,0 +1,35 @@
+@import 'src/components/styles/global.scss';
+.mobileMenu{
+    display: none;
+}
+
+@media (max-width: 760px) {
+
+ .mobileMenu{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 35px;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: black;
+    height: 100px;
+    width: 200px;
+    z-index: 100;
+    
+ }
+ .option{
+    color: white;
+    text-decoration: none;
+    font-family:$font-tittle;
+    font-weight: 600;
+    
+    
+ }
+ .option:hover{
+    cursor: pointer;
+    text-decoration: underline;
+ }
+
+  }

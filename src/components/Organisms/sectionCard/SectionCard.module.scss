@@ -1,0 +1,110 @@
+@import "src/components/styles/global.scss";
+
+.image_Container {
+  margin: auto;
+  padding-top: 20px;
+  width: clamp(300px, 60%, 600px);
+  height: 250px;
+}
+
+.image {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+.inputSection {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.sectionGrid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: clamp(0.5rem, 20vw - 1rem, 1.2rem);
+  margin: 0 3rem 0 3rem;
+}
+
+.gridPokemon {
+  background-color: $card-color;
+  border: solid 3px hsl(215deg 28% 17%);
+  border-radius: 18px;
+  width: clamp(100px, 20%, 200px);
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+  box-shadow: 2px 4px 9px hsl(0deg 0% 0% / 0.95);
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}
+
+.imgContainer {
+  align-self: center;
+  width: clamp(100px, 70%, 200px);
+  height: 150px;
+}
+
+.imgPokemon {
+  object-fit: contain;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.pokemonName {
+  text-align: center;
+  font-family: $font-pokemon;
+  font-size: clamp(0.4rem, 40% + 0.3rem, 4rem);
+}
+
+.buttonContainer {
+  margin-top: 40px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: clamp(150px, 40%, 550px);
+}
+
+.buttonPage {
+  width: 90px;
+  height: 45px;
+  background-color: black;
+  border-radius: 30px;
+  color: white;
+  font-family: $font-pokemon;
+  font-size: small;
+  border: none;
+  cursor: pointer;
+}
+
+.buttonPage:hover {
+  transform: scale(1.2);
+  color: rgb(49, 174, 49);
+}
+
+@media (max-width: 1024px) {
+  .sectionGrid {
+    margin: 0 2rem 0 2rem;
+  }
+
+  .imgContainer {
+    height: 120px;
+  }
+}
+
+@media (max-width: 760px) {
+  .sectionGrid {
+    margin: 0 1.5rem 0 1.5rem;
+  }
+
+  .imgContainer {
+    height: 100px;
+  }
+
+  .image_Container {
+    height: 150px;
+  }
+}
