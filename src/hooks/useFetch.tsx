@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-interface FetcError {
+interface FetchError {
   code: number;
   message: string;
 }
@@ -8,7 +8,7 @@ interface FetchState<T> {
   data: T | null;
   isLoading: boolean;
   hasError: boolean;
-  error: FetcError | null;
+  error: FetchError | null;
 }
 
 export function useFetch<T>(url: string) {

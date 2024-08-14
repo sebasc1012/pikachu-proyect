@@ -1,7 +1,7 @@
 import style from "./SectionCard.module.scss";
 import { useFetch } from "../../../hooks/useFetch";
 import { PopapPokemons } from "../../molecules/PopapPokemons/PopapPokemons";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   Pokemon,
   PokemonResponseAPI,
@@ -9,6 +9,7 @@ import {
 } from "../../../models/Pokemons";
 import { SearchBar } from "../../molecules/SearchBar/SearchBar";
 import { useSearch } from "../../../hooks/useSearch";
+import { urlDefault } from "../../../Constant";
 
 interface UseFetchResults {
   data: PokemonResponseAPI | null;
@@ -22,23 +23,26 @@ export const SectionCard = () => {
   const [debounceInput, setDebounceInput] = useState("");
   const { pokemonsFiltered } = useSearch(debounceInput);
 
-  const pokeUrl = "https://pokeapi.co/api/v2/pokemon";
   const { data, isLoading }: UseFetchResults = useFetch<Pokemon>(
-    `${pokeUrl}?limit=12&offset=${offset}`
+    `${urlDefault}?limit=12&offset=${offset}`
   );
 
-  const MapPokemon = data?.results.map((item) => {
-    const urlSegment = item.url.split('/');
-    const id = urlSegment[urlSegment.length -2];
-    return{
-      name: item.name,
-      id: id ?? '',
-    }
-  });
+
+  const pokemonMemo = useMemo(()=>{
+   const MapPokemon = data?.results.map((item) => {
+      const urlSegment = item.url.split('/');
+      const id = urlSegment[urlSegment.length -2];
+      return{
+        name: item.name,
+        id: id ?? '',
+      }
+    });
+    return MapPokemon
+  }, [data])
 
   const handlePopup = (id: string) => {
     const pokemon = !search
-      ? MapPokemon?.find((pokemon) => pokemon.id === id)
+      ? pokemonMemo?.find((pokemon) => pokemon.id === id)
       : pokemonsFiltered?.find((pokemon) => pokemon.id === id);
     if (!pokemon) return;
     setAddPokemon(pokemon);
@@ -80,11 +84,11 @@ export const SectionCard = () => {
 
       <section className={style.sectionGrid}>
         {!search
-          ? MapPokemon?.map((pokemon) => (
+          ? pokemonMemo?.map((pokemon) => (
               <div
                 className={style.gridPokemon}
                 onClick={() => handlePopup(pokemon.id)}
-                key={pokemon.id}
+                key={`poke_name${pokemon.id}`}
               >
                 <div className={style.imgContainer}>
                   <img
@@ -100,7 +104,7 @@ export const SectionCard = () => {
               <div
                 className={style.gridPokemon}
                 onClick={() => handlePopup(pokemon.id)}
-                key={pokemon.id}
+                key={`poke_name${pokemon.id}`}
               >
                 <div className={style.imgContainer}>
                   <img
