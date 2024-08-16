@@ -11,6 +11,7 @@ import { SearchBar } from "../../molecules/SearchBar/SearchBar";
 import { useSearch } from "../../molecules/SearchBar/useSearch";
 import { urlDefault } from "../../../Constant";
 
+
 interface UseFetchResults {
   data: PokemonResponseAPI | null;
   isLoading: boolean;
