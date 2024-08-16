@@ -74,7 +74,7 @@ export const SectionCard = () => {
           <div className={style.image_Container}>
             <img
               className={style.image}
-              src="src/assets/img/LogoSecondPage.png"
+              src="/img/LogoSecondPage.png"
               alt="logo"
             />
           </div>
@@ -90,7 +90,7 @@ export const SectionCard = () => {
              <div className={style.notFoundContainer}>
                <h5  className={style.notFoundTittle}>Pokemon not found</h5>
                <div >
-                <img className={style.imageNotFound} src="src/assets/img/pikachu-pokemon.gif" alt="pokemon not found"/>
+                <img className={style.imageNotFound} src="/img/pikachu-pokemon.gif" alt="pokemon not found"/>
                </div>
              </div>
             ) : !search ? (

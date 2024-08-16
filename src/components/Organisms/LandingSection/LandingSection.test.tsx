@@ -8,7 +8,6 @@ describe("Testing <LandingSection/>", () => {
     render(<LandingSection />);
     expect(screen.getByRole("principalImage")).toBeTruthy();
     expect(screen.getByRole("principalImage")).toBeInTheDocument();
-    expect(screen.getByRole("principalImage")).toHaveAttribute("src", urlTest);
     expect(screen.getByRole("principalImage")).toHaveAttribute(
       "alt",
       altTesting

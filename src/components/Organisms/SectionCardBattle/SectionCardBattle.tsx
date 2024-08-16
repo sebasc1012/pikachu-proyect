@@ -86,7 +86,7 @@ export const SectionCardBattle = () => {
                 <div >
                   <img
                   className={style.imgContainerNotFound}
-                    src="src/assets/img/pikachu-pokemon.gif"
+                    src="/img/pikachu-pokemon.gif"
                     alt="pokemon not found"
                   />
                 </div>

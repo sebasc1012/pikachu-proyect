@@ -124,7 +124,6 @@ describe("Test <PopapPokemons/>", () => {
   });
   test("should rendered the img with the alt and src", () => {
     const altTest = "pokeball";
-    const UrlTest = "src/assets/img/Pokeball.png";
 
     render(
       <PopapPokemons pokemon={mockData} setShowPopup={mockSetShowPopap} />
@@ -133,6 +132,7 @@ describe("Test <PopapPokemons/>", () => {
       "alt",
       altTest
     );
+  });
 
   test("should rendered the hight of the pokemon", () => {
     render(

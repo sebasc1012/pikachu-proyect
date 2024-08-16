@@ -25,7 +25,7 @@ export const PopapPokemons = ({ pokemon, setShowPopup }: Props) => {
         <img
           role="imagePokemon"
           alt="pokeball"
-          src="public/img/Pokeball.png"
+          src="/img/Pokeball.png"
         />
       </div>
 
