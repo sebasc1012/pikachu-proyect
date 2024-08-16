@@ -19,6 +19,7 @@ export const HeaderBar = () => {
               Character
             </NavLink>
           </li>
+         
           <li>
             <NavLink to="/Battle" className={style.text}>
               Battle

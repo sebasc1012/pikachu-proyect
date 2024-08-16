@@ -11,6 +11,8 @@ interface FetchState<T> {
   error: FetchError | null;
 }
 
+const localCache: Record<string, unknown> = {}
+
 export function useFetch<T>(url: string) {
   const [state, setState] = useState<FetchState<T>>({
     data: null,
@@ -32,11 +34,23 @@ export function useFetch<T>(url: string) {
     });
   };
   const getPokemons = async () => {
+
+    if(localCache[url]){
+      setState({
+        data: localCache[url] as T,
+        isLoading:false,
+        hasError:false,
+        error:null
+      })
+      return;
+    }
     setLoadingState();
+
 
     try {
       const response = await fetch(url);
       const data = await response.json();
+
       if (response.ok) {
         setState({
           data: data as T,
@@ -44,6 +58,8 @@ export function useFetch<T>(url: string) {
           hasError: false,
           error: null,
         });
+
+        localCache[url]= data
       } else {
         setState({
           data: null,

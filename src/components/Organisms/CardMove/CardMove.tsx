@@ -29,6 +29,7 @@ export const CardMove = () => {
             <div className="card" key={item.src}>
               <div className="imgContainer">
                 <img
+                role="imgCharacter" 
                   className="imgCharacter"
                   alt="character image"
                   src={item.src}
@@ -38,7 +39,7 @@ export const CardMove = () => {
 
               <div className="power" style={{ background: item.background }}>
                 <div className="containerButton">
-                  <img alt="character type" src={item.imgType} />
+                  <img  alt="character type" src={item.imgType} />
                   <p className="typeButton">{item.type}</p>
                 </div>
               </div>
