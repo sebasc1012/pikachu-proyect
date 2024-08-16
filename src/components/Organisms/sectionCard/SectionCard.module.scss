@@ -35,6 +35,7 @@
   flex-direction: column;
   padding: 10px 20px;
   box-shadow: 2px 4px 9px hsl(0deg 0% 0% / 0.95);
+  transition: transform 250ms;
 
   &:hover {
     cursor: pointer;
@@ -72,17 +73,36 @@
   width: 90px;
   height: 45px;
   background-color: black;
-  border-radius: 30px;
+  border-radius: 12px;
   color: white;
   font-family: $font-pokemon;
   font-size: small;
   border: none;
   cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+.buttonPage::after{
+  content:'';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+ background-color: hsl(202, 14%, 41%);
+border-radius: 12px;
+transition: transform 250ms ease-in;
+z-index: -1;
 }
 
-.buttonPage:hover {
-  transform: scale(1.2);
-  color: rgb(49, 174, 49);
+.buttonPage::after{
+  transform: scaleX(0);
+  transform-origin: right;
+}
+.buttonPage:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+ 
 }
 
 @media (max-width: 1024px) {
@@ -107,4 +127,43 @@
   .image_Container {
     height: 150px;
   }
+  .notFoundTittle {
+    font-size: 0.5rem;
+  }
+}
+
+.loadingContainer {
+  height: 100vh;
+  width: 100vw;
+}
+.loadingSection {
+  background-image: url("src/assets/img/Pokeball.png");
+  background-repeat: repeat-x;
+  background-size: cover;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 0;
+  width: 150px;
+  height: 150px;
+}
+
+.notFoundContainer {
+  margin-top: 20px;
+  width: clamp(200px, 50%, 600px); 
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.notFoundTittle {
+  font-family: $font-pokemon;
+  font-size: clamp(0.5rem, 1vw + 1rem, 2rem);
+  margin: 0;
+  text-align: center;
+}
+.imageNotFound{
+  margin-top: 20px;
+  width: clamp(200px, 80% ,600px);
 }

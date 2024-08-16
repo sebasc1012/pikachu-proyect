@@ -1,64 +1,9 @@
 import { useEffect, useRef } from "react";
 import "../CardMove/CardMove.scss";
+import { imageList } from "../../../Constant";
 
-interface ImageItems {
-  src: string;
-  name: string;
-  type: string;
-  imgType: string;
-  background: string;
-}
-const imageList: ImageItems[] = [
-  {
-    src: "src/assets/img/bulbasorCard.png",
-    name: "Bulbasor",
-    type: "Rock",
-    imgType: "src/assets/img/rock.png",
-    background: "#C5B78C",
-  },
-  {
-    src: "src/assets/img/CharmanderCard.png",
-    name: "Charmander",
-    type: "fire",
-    imgType: "src/assets/img/fire.png",
-    background: "#FF9D55",
-  },
-  {
-    src: "src/assets/img/SquiterCard.png",
-    name: "Squiter",
-    type: "water",
-    imgType: "src/assets/img/water.png",
-    background: "#5090D6",
-  },
-  {
-    src: "src/assets/img/onixCard.png",
-    name: "Onix",
-    type: "Rock",
-    imgType: "src/assets/img/rock.png",
-    background: "#C5B78C",
-  },
-  {
-    src: "src/assets/img/pikachuCard.png",
-    name: "Pikachu",
-    type: " Electical",
-    imgType: "src/assets/img/electrical.png",
-    background: "#F4D23D",
-  },
-  {
-    src: "src/assets/img/aggron.png",
-    name: "Aggron",
-    type: "water",
-    imgType: "src/assets/img/water.png",
-    background: "#5090D6",
-  },
-  {
-    src: "src/assets/img/blastoise.png",
-    name: "Blastois",
-    type: "water",
-    imgType: "src/assets/img/water.png",
-    background: "#5090D6",
-  },
-];
+
+
 
 export const CardMove = () => {
   const scrollerInnerRef = useRef<HTMLDivElement>(null);
@@ -84,6 +29,7 @@ export const CardMove = () => {
             <div className="card" key={item.src}>
               <div className="imgContainer">
                 <img
+                role="imgCharacter" 
                   className="imgCharacter"
                   alt="character image"
                   src={item.src}
@@ -93,7 +39,7 @@ export const CardMove = () => {
 
               <div className="power" style={{ background: item.background }}>
                 <div className="containerButton">
-                  <img alt="character type" src={item.imgType} />
+                  <img  alt="character type" src={item.imgType} />
                   <p className="typeButton">{item.type}</p>
                 </div>
               </div>

@@ -1,3 +1,4 @@
+import { urlDefault } from "../../../Constant";
 import { useFetch } from "../../../hooks/useFetch";
 import { ReturnResult } from "../../../models/Pokemons";
 import { ResponsePokemon } from "../../../models/ResponsePokemon";
@@ -8,7 +9,6 @@ interface Props {
   setShowPopup: () => void;
 }
 
-const urlDefault = "https://pokeapi.co/api/v2/pokemon/";
 export const PopapPokemons = ({ pokemon, setShowPopup }: Props) => {
   const { data, isLoading } = useFetch<ResponsePokemon>(
     `${urlDefault}${pokemon.id}`
@@ -44,13 +44,12 @@ export const PopapPokemons = ({ pokemon, setShowPopup }: Props) => {
         <div className={style.abilitiesMoves}>
           <ul className={style.abilities}>
             Abilities:
-            <li>{data?.abilities.map((i) => i.ability.name)}</li>
+            <li >{data?.abilities.map((i) => i.ability.name)}</li>
           </ul>
+
           <ul className={style.abilities}>
             Moves:
-            {data?.moves
-              .map((e) => <li key={`popap_${pokemon.id}`}>{e.move.name}</li>)
-              .filter((pokemon, index) => index < 3)}
+            <li>{data?.moves.map((e) => e.move.name).filter((pokemon, index) => index < 3)}</li>
           </ul>
         </div>
 

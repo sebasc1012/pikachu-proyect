@@ -12,6 +12,7 @@ export const PopPapFight = ({ result }: ResultProps) => {
         <h1 role="resultBattle" className={style.result}>
           {result}
         </h1>
+
         <button className={style.buttonGame}>
           <NavLink
             style={{ textDecoration: "none", color: "black" }}

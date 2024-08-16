@@ -6,6 +6,7 @@ import { ResponsePokemon } from "../../models/ResponsePokemon";
 import { useEffect, useState } from "react";
 import { PokemonFight } from "../molecules/PokemonFight/PokemonFight";
 import { PopPapFight } from "../molecules/PopPapFight/PopPapFight";
+import { urlDefault } from "../../Constant";
 
 interface pokemonId {
   id: number;
@@ -25,18 +26,19 @@ export const Fight = () => {
   );
   const [resultBattle, setResultBattle] = useState<string | null>(null);
 
-  const randomNumber = Math.floor(Math.random() * 1000);
+  
 
   useEffect(() => {
+    const randomNumber = Math.floor(Math.random() * 1000);
     const id = randomNumber;
-    setRandomPokemonId(id);
+    setRandomPokemonId(id); 
   }, []);
 
   const { data: userPokemon } = useFetch<ResponsePokemon>(
-    `https://pokeapi.co/api/v2/pokemon/${id}`
+    `${urlDefault}${id}`
   );
   const { data: randomPokemon } = useFetch<ResponsePokemon>(
-    `https://pokeapi.co/api/v2/pokemon/${randomPokemonId}`
+    `${urlDefault}${randomPokemonId}`
   );
 
   useEffect(() => {
@@ -85,7 +87,7 @@ export const Fight = () => {
           experience={userPokemon?.base_experience}
         />
 
-        {resultBattle ? <PopPapFight result={resultBattle} /> : <p style={{margin:'0', padding:'0'}}>Waiting</p>}
+        {resultBattle ? <PopPapFight result={resultBattle} /> : <p style={{margin:'0', padding:'0'}}></p>}
       </MainLayout>
     </>
   );

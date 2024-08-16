@@ -6,6 +6,7 @@ export const LandingSection = () => {
       <div className={styles.Container_Image}>
         <picture className={styles.container_Title}>
           <img
+             role="principalImage"
             className={styles.imgOne}
             src="src/assets/img/Logo.png"
             alt="Bulbasor Img"
@@ -21,10 +22,10 @@ export const LandingSection = () => {
         </picture>
       </div>
       <div className={styles.title_Page}>
-        <h1 className={styles.principal_title}>
-          Are you ready for the challenge ?{" "}
+        <h1 role="tittleRole" className={styles.principal_title}>
+          Are you ready for the challenge ?
         </h1>
-        <h2 className={styles.principal_subtitle}>
+        <h2 role="subtitle" className={styles.principal_subtitle}>
           Immerse yourself in the ultimate adventure with our interactive
           platform where you can explore and discover all the Pokémon
           characters. Not only will you be able to learn about your favorite
