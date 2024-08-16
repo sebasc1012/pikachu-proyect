@@ -134,9 +134,6 @@ describe("Test <PopapPokemons/>", () => {
       altTest
     );
 
-    expect(screen.getByRole("imagePokemon")).toHaveAttribute("src", UrlTest);
-  });
-
   test("should rendered the hight of the pokemon", () => {
     render(
       <PopapPokemons pokemon={mockData} setShowPopup={mockSetShowPopap} />

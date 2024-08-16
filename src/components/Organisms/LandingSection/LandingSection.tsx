@@ -8,7 +8,7 @@ export const LandingSection = () => {
           <img
              role="principalImage"
             className={styles.imgOne}
-            src="src/assets/img/Logo.png"
+            src="public/img/Logo.png"
             alt="Bulbasor Img"
           />
         </picture>
