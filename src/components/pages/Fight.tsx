@@ -87,7 +87,7 @@ export const Fight = () => {
           experience={userPokemon?.base_experience}
         />
 
-        {resultBattle ? <PopPapFight result={resultBattle} /> : <p style={{margin:'0', padding:'0'}}>Waiting</p>}
+        {resultBattle ? <PopPapFight result={resultBattle} /> : <p style={{margin:'0', padding:'0'}}></p>}
       </MainLayout>
     </>
   );

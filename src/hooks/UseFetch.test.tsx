@@ -11,7 +11,7 @@ const mockFetch = (url: string, response: unknown, status: number = 200) => {
   }) as jest.Mock;
 };
 
-describe("useFetch Hook", () => {
+describe("testing <useFetch/>", () => {
   afterEach(() => {
     jest.resetAllMocks();
   });
