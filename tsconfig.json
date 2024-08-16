@@ -9,7 +9,9 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "outDir": "./dist",
+    "rootDir": "./"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "test/**/*"],
   "exclude": ["node_modules"],
