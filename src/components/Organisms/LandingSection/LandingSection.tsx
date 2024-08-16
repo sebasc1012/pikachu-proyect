@@ -8,7 +8,7 @@ export const LandingSection = () => {
           <img
              role="principalImage"
             className={styles.imgOne}
-            src="public/img/Logo.png"
+            src="/img/Logo.png"
             alt="Bulbasor Img"
           />
         </picture>
@@ -16,7 +16,7 @@ export const LandingSection = () => {
         <picture className={styles.container_picture}>
           <img
             className={styles.imgTwo}
-            src="src/assets/img/bulbasorLanding.png"
+            src="/img/bulbasorLanding.png"
             alt="Pokemon tittle"
           />
         </picture>
