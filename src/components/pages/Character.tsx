@@ -6,7 +6,7 @@ export const Character = () => {
   return (
     <>
       <MainLayout className={style.container}>
-        <SectionCard />
+        <SectionCard/>
       </MainLayout>
     </>
   );
